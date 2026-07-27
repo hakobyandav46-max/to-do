@@ -1,21 +1,14 @@
-FROM node:20-alpine
+FROM node:20-alpine AS deps
 
 WORKDIR /app
 
-# Копируем package.json и package-lock.json
-COPY package*.json ./
-
-# Устанавливаем зависимости
+COPY backend/package*.json ./
 RUN npm install
 
-# Копируем весь проект
-COPY . .
+COPY backend .
 
-# Собираем TypeScript
 RUN npm run build
 
-# Открываем порт
 EXPOSE 5555
 
-# Запускаем приложение
-CMD ["npm", "start"]
+CMD ["npm","start"]
