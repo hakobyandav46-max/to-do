@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx src/index.ts",
-    "start": "node src/index.js",
+    "start": "tsx src/index.ts",
     "build": "tsx src/index.ts"
   },
   "keywords": [],
